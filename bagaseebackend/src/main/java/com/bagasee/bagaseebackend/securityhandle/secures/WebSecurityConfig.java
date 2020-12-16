@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     UserDetailServiceImpl userDetailsService;
 
     @Autowired
-    private JwtAuthEntryPoint unauthorizedHandler;
+    private JwtAuthEntryPoint jwtAuthEntryPoint;
 
     @Bean
     public JwtAuthTokenFilter authenticationJwtTokenFilter() {
@@ -62,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/auth/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+                .exceptionHandling().authenticationEntryPoint(jwtAuthEntryPoint).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);

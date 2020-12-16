@@ -12,7 +12,7 @@ public class SignUpForm {
 
 
     @NotBlank
-    @Size(max = 60)
+    @Size(max = 50)
     @Email
     private String email;
 
@@ -22,7 +22,7 @@ public class SignUpForm {
 
 
     @NotBlank
-    @Size(min = 6, max = 40)
+    @Size(min = 6, max = 100)
     private String password;
 
     private Set<String> role;
