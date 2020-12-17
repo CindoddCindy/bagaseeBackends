@@ -87,13 +87,13 @@ public class AuthRestApi {
 
         strRoles.forEach(role -> {
             switch(role) {
-                case "seller":
+                case "SELLER":
                     Role sellerRole = roleRepository.findByName(RoleName.SELLER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(sellerRole);
 
                     break;
-                case "buyer":
+                case "BUYER":
                     Role buyerRole = roleRepository.findByName(RoleName.BUYER)
                             .orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
                     roles.add(buyerRole);
